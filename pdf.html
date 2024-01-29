@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<title>PDFH5</title>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./pdfh5.css">
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		#demo {
+			display: none;
+			/* height: 33%; */
+		}
+
+		#demo2 {
+			/* display: none; */
+			height: 33%;
+		}
+
+		#demo3 {
+			/* display: none; */
+			height: 33%;
+		}
+	</style>
+</head>
+
+<body class="mui-android mui-android-8 mui-android-8-0 mui-android-8-0-0">
+	<div id="app">
+		<div class="text-wrapper">
+			<div class="text part1">
+				<div>
+					<span class="letter">
+						<div class="character">L</div> <span></span>
+					</span>
+					<span class="letter">
+						<div class="character">o</div> <span></span>
+					</span>
+					<span class="letter">
+						<div class="character">a</div> <span></span>
+					</span>
+					<span class="letter">
+						<div class="character">d</div> <span></span>
+					</span>
+					<span class="letter">
+						<div class="character">i</div> <span></span>
+					</span>
+					<span class="letter">
+						<div class="character">n</div> <span></span>
+					</span>
+					<span class="letter">
+						<div class="character">g</div> <span></span>
+					</span>
+				</div>
+			</div>
+			<div class="how-to"><span>正在加载中，请您耐心等待...</span></div>
+		</div>
+
+	</div>
+	<div id="demo"></div>
+
+	<script src="./pdf.js"></script>
+	<script src="./pdf.worker.js"></script>
+	<script src="./jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./pdfh5.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./mui.min.js"></script>
+	<script src="./uniapp.js"></script>
+	<script src="./script.js"></script>
+	<!-- <script src="./axios.min.js"></script> -->
+
+	<script type="text/javascript">
+		var pdfh5;
+		setTimeout(() => {
+			$(function () {
+				$("#app").remove()
+				$("#demo").show()
+				const searchParams = new URLSearchParams(window.location.search);
+				const pdfurl = searchParams.get("pdfurl");
+				pdfh5 = new Pdfh5('#demo', {
+					pdfurl,
+					URIenable: false,
+				});
+			})
+		}, 1000)
+
+	</script>
+
+</body>
+
+</html>
